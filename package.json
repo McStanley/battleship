@@ -1,0 +1,25 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "Battleship game implemented adopting Test Driven Development workflow.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/McStanley/battleship.git"
+  },
+  "keywords": [
+    "battleship",
+    "game",
+    "tdd"
+  ],
+  "author": "Stanisław Olejniczak <0stanislawolejniczak0@gmail.com> (https://github.com/McStanley)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/McStanley/battleship/issues"
+  },
+  "homepage": "https://github.com/McStanley/battleship#readme"
+}
