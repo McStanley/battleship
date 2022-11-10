@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=e=>{for(let t=0;t<10;t+=1)for(let d=0;d<10;d+=1){const r=document.createElement("div");r.classList.add("grid-cell"),r.dataset.x=d,r.dataset.y=t,e.appendChild(r)}},t=document.querySelector("#left-grid"),d=document.querySelector("#right-grid");e(t),e(d)})();
