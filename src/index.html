@@ -7,5 +7,24 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
 
-  <body></body>
+  <body>
+    <header class="header">
+      <h1>Battleship</h1>
+    </header>
+    <main class="main">
+      <div class="game">
+        <div class="grid-container">
+          <p class="grid-description">Your fleet:</p>
+          <div id="left-grid" class="grid"></div>
+        </div>
+        <div class="grid-container">
+          <p class="grid-description">Opponent's grid:</p>
+          <div id="right-grid" class="grid"></div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>Stanisław Olejniczak 2022</p>
+    </footer>
+  </body>
 </html>
