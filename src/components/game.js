@@ -27,6 +27,12 @@ const game = (() => {
     }
   };
 
+  const isOver = () => !!passivePlayer.gameboard.allSunk;
+
+  const togglePlayers = () => {
+    [activePlayer, passivePlayer] = [passivePlayer, activePlayer];
+  };
+
   const init = () => {
     activePlayer = new Player('Player 1', true);
     passivePlayer = new Player('Player 2', true);
@@ -38,6 +44,8 @@ const game = (() => {
   return {
     getActive,
     getPassive,
+    isOver,
+    togglePlayers,
     init,
   };
 })();
