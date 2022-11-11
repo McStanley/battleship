@@ -84,6 +84,21 @@ const dom = (() => {
           game.togglePlayers();
 
           setTimeout(() => {
+            if (!game.getActive().isHuman) {
+              game.computerMove();
+
+              if (game.isOver()) {
+                alert(`${game.getActive().name} won`);
+
+                game.togglePlayers();
+                displayFleet();
+
+                return;
+              }
+
+              game.togglePlayers();
+            }
+
             displayFleet();
             enableShooting();
           }, 250);
