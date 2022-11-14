@@ -28,6 +28,15 @@ const dom = (() => {
     }
   };
 
+  const toggleProceed = () => {
+    const proceed = document.querySelector('.proceed');
+    const proceedPlayer = document.querySelector('#proceed-player');
+
+    proceedPlayer.textContent = game.getActive().name;
+    proceed.classList.toggle('hidden');
+    updateOverlay(proceed);
+  };
+
   const displayWinner = (winner) => {
     const results = document.querySelector('.results');
     const winnerSpan = document.querySelector('#winner');
@@ -77,7 +86,9 @@ const dom = (() => {
   };
 
   const enableShooting = () => {
+    const leftGrid = document.querySelector('#left-grid');
     const rightGrid = document.querySelector('#right-grid');
+
     generateGrid(rightGrid);
     rightGrid.style.pointerEvents = 'auto';
 
@@ -122,9 +133,18 @@ const dom = (() => {
               game.togglePlayers();
             }
 
+            if (game.getPassive().isHuman) {
+              generateGrid(leftGrid);
+              generateGrid(rightGrid);
+
+              toggleProceed();
+
+              return;
+            }
+
             displayFleet();
             enableShooting();
-          }, 250);
+          }, 500);
         });
       }
     }
@@ -183,11 +203,20 @@ const dom = (() => {
     toggleSetup();
   };
 
+  const continueGame = () => {
+    toggleProceed();
+
+    displayFleet();
+    enableShooting();
+  };
+
   const init = () => {
     const startBtn = document.querySelector('#start-btn');
+    const proceedBtn = document.querySelector('#proceed-btn');
     const restartBtn = document.querySelector('#restart-btn');
 
     startBtn.addEventListener('click', submitSetup);
+    proceedBtn.addEventListener('click', continueGame);
     restartBtn.addEventListener('click', startGame);
 
     startGame();

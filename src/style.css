@@ -59,6 +59,7 @@ button {
 }
 
 .setup,
+.proceed,
 .results {
   padding: 25px;
   position: absolute;
