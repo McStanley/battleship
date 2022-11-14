@@ -17,6 +17,27 @@ const dom = (() => {
     }
   };
 
+  const updateOverlay = (element) => {
+    const overlay = document.querySelector('.overlay');
+
+    if (
+      element.classList.contains('hidden') !==
+      overlay.classList.contains('hidden')
+    ) {
+      overlay.classList.toggle('hidden');
+    }
+  };
+
+  const displayWinner = (winner) => {
+    const results = document.querySelector('.results');
+    const winnerSpan = document.querySelector('#winner');
+
+    winnerSpan.textContent = winner.name;
+
+    results.classList.remove('hidden');
+    updateOverlay(results);
+  };
+
   const displayHits = (player, grid) => {
     const gridCells = grid.querySelectorAll('.grid-cell');
 
@@ -76,7 +97,8 @@ const dom = (() => {
           displayHits(player, rightGrid);
 
           if (game.isOver()) {
-            alert(`${game.getActive().name} won`);
+            const winner = game.getActive();
+            displayWinner(winner);
 
             return;
           }
@@ -88,7 +110,8 @@ const dom = (() => {
               game.computerMove();
 
               if (game.isOver()) {
-                alert(`${game.getActive().name} won`);
+                const winner = game.getActive();
+                displayWinner(winner);
 
                 game.togglePlayers();
                 displayFleet();
@@ -119,14 +142,13 @@ const dom = (() => {
     pTwoHumanInput.checked = true;
   };
 
-  const closeSetup = () => {
-    const overlay = document.querySelector('.overlay');
+  const toggleSetup = () => {
     const setup = document.querySelector('.setup');
 
-    overlay.classList.add('hidden');
-    setup.classList.add('hidden');
+    setup.classList.toggle('hidden');
+    updateOverlay(setup);
 
-    clearSetup();
+    if (setup.classList.contains('hidden')) clearSetup();
   };
 
   const submitSetup = () => {
@@ -142,21 +164,33 @@ const dom = (() => {
 
     game.init(pOneName, pOneHuman, pTwoName, pTwoHuman);
 
-    closeSetup();
+    toggleSetup();
 
     displayFleet();
     enableShooting();
   };
 
-  const init = () => {
+  const startGame = () => {
     const leftGrid = document.querySelector('#left-grid');
     const rightGrid = document.querySelector('#right-grid');
-    const startBtn = document.querySelector('#start-btn');
+    const results = document.querySelector('.results');
 
     generateGrid(leftGrid);
     generateGrid(rightGrid);
 
+    results.classList.add('hidden');
+
+    toggleSetup();
+  };
+
+  const init = () => {
+    const startBtn = document.querySelector('#start-btn');
+    const restartBtn = document.querySelector('#restart-btn');
+
     startBtn.addEventListener('click', submitSetup);
+    restartBtn.addEventListener('click', startGame);
+
+    startGame();
   };
 
   return {

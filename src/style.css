@@ -25,6 +25,7 @@ h3 {
 }
 
 button {
+  padding: 20px 10px;
   border: none;
   border-radius: 50%;
   font-weight: bold;
@@ -57,7 +58,8 @@ button {
   border-radius: inherit;
 }
 
-.setup {
+.setup,
+.results {
   padding: 25px;
   position: absolute;
   top: 50%;
@@ -86,11 +88,6 @@ button {
 
 .setup-player-title {
   align-self: center;
-}
-
-#start-btn {
-  height: 50px;
-  width: 60px;
 }
 
 .grid-container {

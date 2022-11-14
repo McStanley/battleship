@@ -22,9 +22,9 @@
           <div id="right-grid" class="grid"></div>
         </div>
 
-        <div class="overlay"></div>
+        <div class="overlay hidden"></div>
 
-        <div class="setup">
+        <div class="setup hidden">
           <h2>New Game</h2>
           <div class="setup-players">
             <div class="setup-player">
@@ -82,6 +82,11 @@
             </div>
           </div>
           <button type="button" id="start-btn">Start</button>
+        </div>
+
+        <div class="results hidden">
+          <h2><span id="winner"></span> won</h2>
+          <button type="button" id="restart-btn">New game</button>
         </div>
       </div>
     </main>
