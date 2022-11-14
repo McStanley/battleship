@@ -21,6 +21,68 @@
           <p class="grid-description">Opponent's grid:</p>
           <div id="right-grid" class="grid"></div>
         </div>
+
+        <div class="overlay"></div>
+
+        <div class="setup">
+          <h2>New Game</h2>
+          <div class="setup-players">
+            <div class="setup-player">
+              <h3 class="setup-player-title">Player One</h3>
+              <div>
+                <label for="playerone-name">Name</label>
+                <input
+                  type="text"
+                  name="playerone-name"
+                  id="playerone-name"
+                  placeholder="Player One"
+                />
+              </div>
+              <fieldset disabled>
+                <legend>Mode</legend>
+                <input
+                  type="radio"
+                  name="playerone-mode"
+                  id="playerone-human"
+                  value="human"
+                  checked
+                />
+                <label for="playerone-human">Human</label>
+              </fieldset>
+            </div>
+            <div class="setup-player">
+              <h3 class="setup-player-title">Player Two</h3>
+              <div>
+                <label for="playertwo-name">Name</label>
+                <input
+                  type="text"
+                  name="playertwo-name"
+                  id="playertwo-name"
+                  placeholder="Player Two"
+                />
+              </div>
+              <fieldset>
+                <legend>Mode</legend>
+                <input
+                  type="radio"
+                  name="playertwo-mode"
+                  id="playertwo-human"
+                  value="human"
+                  checked
+                />
+                <label for="playertwo-human">Human</label>
+                <input
+                  type="radio"
+                  name="playertwo-mode"
+                  id="playertwo-ai"
+                  value="ai"
+                />
+                <label for="playertwo-ai">AI</label>
+              </fieldset>
+            </div>
+          </div>
+          <button type="button" id="start-btn">Start</button>
+        </div>
       </div>
     </main>
     <footer class="footer">

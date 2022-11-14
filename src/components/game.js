@@ -46,9 +46,9 @@ const game = (() => {
     player.gameboard.receiveAttack(x, y);
   };
 
-  const init = () => {
-    activePlayer = new Player('Player 1', true);
-    passivePlayer = new Player('Player 2', false);
+  const init = (pOneName, pOneHuman, pTwoName, pTwoHuman) => {
+    activePlayer = new Player(pOneName, pOneHuman);
+    passivePlayer = new Player(pTwoName, pTwoHuman);
 
     deployFleet(activePlayer);
     deployFleet(passivePlayer);

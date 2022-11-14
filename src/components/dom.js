@@ -107,11 +107,56 @@ const dom = (() => {
     }
   };
 
-  const init = () => {
-    game.init();
+  const clearSetup = () => {
+    const pOneNameInput = document.querySelector('#playerone-name');
+    const pOneHumanInput = document.querySelector('#playerone-human');
+    const pTwoNameInput = document.querySelector('#playertwo-name');
+    const pTwoHumanInput = document.querySelector('#playertwo-human');
+
+    pOneNameInput.value = '';
+    pOneHumanInput.checked = true;
+    pTwoNameInput.value = '';
+    pTwoHumanInput.checked = true;
+  };
+
+  const closeSetup = () => {
+    const overlay = document.querySelector('.overlay');
+    const setup = document.querySelector('.setup');
+
+    overlay.classList.add('hidden');
+    setup.classList.add('hidden');
+
+    clearSetup();
+  };
+
+  const submitSetup = () => {
+    const pOneNameInput = document.querySelector('#playerone-name');
+    const pOneHumanInput = document.querySelector('#playerone-human');
+    const pTwoNameInput = document.querySelector('#playertwo-name');
+    const pTwoHumanInput = document.querySelector('#playertwo-human');
+
+    const pOneName = pOneNameInput.value || 'Player One';
+    const pOneHuman = !!pOneHumanInput.checked;
+    const pTwoName = pTwoNameInput.value || 'Player Two';
+    const pTwoHuman = !!pTwoHumanInput.checked;
+
+    game.init(pOneName, pOneHuman, pTwoName, pTwoHuman);
+
+    closeSetup();
 
     displayFleet();
     enableShooting();
+  };
+
+  const init = () => {
+    const leftGrid = document.querySelector('#left-grid');
+    const rightGrid = document.querySelector('#right-grid');
+    const startBtn = document.querySelector('#start-btn');
+
+    generateGrid(leftGrid);
+    generateGrid(rightGrid);
+
+    startBtn.addEventListener('click', submitSetup);
   };
 
   return {

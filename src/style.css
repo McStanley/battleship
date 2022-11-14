@@ -9,8 +9,25 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.header {
-  font-size: 1.2rem;
+h1 {
+  margin: 20px 0;
+  font-size: 2.5rem;
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 1.8rem;
+}
+
+h3 {
+  margin: 5px 0;
+  font-size: 1.3rem;
+}
+
+button {
+  border: none;
+  border-radius: 50%;
+  font-weight: bold;
 }
 
 .main {
@@ -19,6 +36,7 @@ body {
 }
 
 .game {
+  position: relative;
   margin: auto;
   padding: 50px;
   height: auto;
@@ -28,6 +46,51 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  border-radius: inherit;
+}
+
+.setup {
+  padding: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid whitesmoke;
+  background-color: grey;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.setup-players {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.setup-player {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.setup-player-title {
+  align-self: center;
+}
+
+#start-btn {
+  height: 50px;
+  width: 60px;
 }
 
 .grid-container {
@@ -66,4 +129,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
+}
+
+.hidden {
+  display: none !important ;
 }
