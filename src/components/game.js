@@ -27,6 +27,8 @@ const game = (() => {
     }
   };
 
+  const isPvP = () => activePlayer.isHuman && passivePlayer.isHuman;
+
   const isOver = () => !!passivePlayer.gameboard.allSunk;
 
   const togglePlayers = () => {
@@ -57,6 +59,7 @@ const game = (() => {
   return {
     getActive,
     getPassive,
+    isPvP,
     isOver,
     togglePlayers,
     computerMove,

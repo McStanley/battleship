@@ -133,7 +133,7 @@ const dom = (() => {
               game.togglePlayers();
             }
 
-            if (game.getPassive().isHuman) {
+            if (game.isPvP()) {
               generateGrid(leftGrid);
               generateGrid(rightGrid);
 
@@ -185,6 +185,12 @@ const dom = (() => {
     game.init(pOneName, pOneHuman, pTwoName, pTwoHuman);
 
     toggleSetup();
+
+    if (game.isPvP()) {
+      toggleProceed();
+
+      return;
+    }
 
     displayFleet();
     enableShooting();
